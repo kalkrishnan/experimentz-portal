@@ -3,5 +3,6 @@ import { User } from './user.model';
 export class Experiment {
   user: User;
   name: string;
+  timestamp: String;
   ingredients: Ingredient[] = [];
 }

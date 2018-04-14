@@ -29,6 +29,10 @@ export class AuthenticationService {
             });
     }
 
+    public setLoggedIn()
+    {
+      this.loggedIn.next(true);
+    }
     logout() {
         // remove user from local storage to log user out
         this.loggedIn.next(false);

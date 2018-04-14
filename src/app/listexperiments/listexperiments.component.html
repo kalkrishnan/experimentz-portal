@@ -1,9 +1,12 @@
 <mat-accordion displayMode="flat" >
-  <mat-expansion-panel *ngFor="let experiment of experimentList" hideToggle="true">
+  <mat-expansion-panel *ngFor="let experiment of experimentList" >
     <mat-expansion-panel-header>
       <mat-panel-title>
-      {{experiment.name}}
+      Name: {{experiment.name}}
       </mat-panel-title>
+      <mat-panel-description>
+      Created: {{experiment.timestamp}}
+      </mat-panel-description>
     </mat-expansion-panel-header>
 	<mat-table #table [dataSource]="experiment.ingredients">
 	<ng-container  matColumnDef="name">
