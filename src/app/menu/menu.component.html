@@ -1,0 +1,14 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn$ | async">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu [overlapTrigger]="true" #menu="matMenu" xPosition="after"  yPosition="below">
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>cloud_off</mat-icon>
+    <span>Logout</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>build</mat-icon>
+    <span>Admin</span>
+  </button>
+</mat-menu>

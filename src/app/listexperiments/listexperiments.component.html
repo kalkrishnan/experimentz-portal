@@ -1,0 +1,23 @@
+<mat-accordion displayMode="flat" >
+  <mat-expansion-panel *ngFor="let experiment of experimentList" hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+      {{experiment.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+	<mat-table #table [dataSource]="experiment.ingredients">
+	<ng-container  matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let ingredient"> {{ingredient.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container  matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let ingredient"> {{ingredient.amount}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,24 @@
+
+            <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+            <div class="card-body"style=" display: table" [formGroup]="ingredientForm" >
+                <!--name-->
+
+                <div class="form-group"  style="float: left; margin-top: -2em; margin-bottom: -1.25em ">
+                    <mat-form-field>
+                    <mat-select placeholder="ingredient" class="form-group" formControlName="name" name="food" >
+                  <mat-option *ngFor="let ingredient of ingredientList" [value]="ingredient">
+                    {{ingredient}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+
+                </div>
+                <!--amount-->
+                <div class="form-group col-xs-6 " style="float: right;margin-top: -2em ; margin-bottom: -1.25em">
+                    <input type="text" placeholder="Amount" class="form-control" formControlName="amount">
+                </div>
+
+            </div>
+            <small [hidden]="ingredientForm['controls'].name.valid">
+                        Name is required
+            </small>

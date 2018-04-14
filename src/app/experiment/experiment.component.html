@@ -1,0 +1,38 @@
+<div class="col-md-6">
+<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+    <!-- we will place our fields here -->
+
+    <!-- name -->
+    <div class="form-group">
+        <input class="form-control" (focus)="this.value=''" placeholder="Name" type="text" formControlName="name">
+        <!--display error message if name is not valid-->
+        <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+            Name is required (minimum 5 characters).
+        </small>
+    </div>
+    <div  class="card" formArrayName="ingredients">
+        <div *ngFor="let ingredient of myForm['controls'].ingredients.controls; let i=index">
+            <div style=" display: table" class="card-header card text-white bg-dark mb-3"  >
+                <div style="float: left">Ingredient {{i + 1}}</div>
+                <div *ngIf="myForm['controls'].ingredients.controls.length > 1" (click)="removeIngredient(i)" style="float: right">
+                	<i class="fas fa-angle-double-left" ></i>
+                </div>
+            </div>
+            <div  class="card-body" [formGroupName]="i" >
+   				   <app-ingredient [group]="myForm['controls'].ingredients.controls[i]"></app-ingredient>
+			      </div>
+  	    </div>
+    </div>
+
+	<div class="margin-20">
+	       <a (click)="addIngredient()" style="cursor: default">
+	    Add another ingredient +
+	  </a>
+	</div>
+
+	 <div class="margin-20">
+	   <button type="submit" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Submit</button>
+	 </div>
+        <div class="clearfix"></div>
+</form>
+</div>
