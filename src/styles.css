@@ -18,6 +18,12 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
 .mat-expansion-panel-header  {
     height: 48px;
 }
+mat-panel-title {
+  flex-basis: 50%;
+}
+mat-panel-description {
+  flex-basis: 50%;
+}
 
 header {
     background-color: #9ceaf7;
@@ -30,7 +36,7 @@ html, body {
     padding: 0;
 }
 
-header h3 {
+h3 {
     margin: 0;
 }
 
@@ -38,10 +44,13 @@ header h3 {
   padding: 5px;
 }
 
-.menu-left {
-  float: left;
+.menu-center {
+  float: center;
+  display: inline;
 }
 
 .menu-right {
   float: right;
+  display: inline;
 }
+

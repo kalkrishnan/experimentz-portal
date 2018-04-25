@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   template: `
 
-        <header><h3 style class="menu-left"><i>Experimentz</i></h3>  <app-menu class="menu-right"></app-menu></header>
+        <div style="background-color: lightblue"><h3 class="menu-center"><i>Experimentz</i></h3>  <app-menu class="menu-right"></app-menu></div>
 
 
   `,

@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ExperimentService } from '../services/index';
 @Component({
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',
-  styleUrls: ['./ingredient.component.css']
+  styleUrls: ['./ingredient.component.css'],
 })
 export class IngredientComponent implements OnInit {
 

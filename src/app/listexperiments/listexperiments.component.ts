@@ -10,7 +10,7 @@ import {MatTableModule} from '@angular/material/table';
   styleUrls: ['./listexperiments.component.css']
 })
 export class ListexperimentsComponent implements OnInit {
-   displayedColumns = ['name', 'amount'];
+   displayedColumns = ['name', 'sample', 'condition'];
    panelOpenState: boolean = false;
   experimentList: Experiment[] = [];
    user: User = new User();
@@ -34,8 +34,6 @@ export class ListexperimentsComponent implements OnInit {
       });
 
 
-    console.log(response);
-    console.log(this.experimentList);
   }
 
 

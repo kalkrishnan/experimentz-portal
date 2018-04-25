@@ -28,8 +28,13 @@
 	       <a (click)="addIngredient()" style="cursor: default">
 	    Add another ingredient +
 	  </a>
-	</div>
-
+  </div>
+  <br/>
+  <br/>
+  <div class="margin-20">
+    <input class="form-control" (focus)="this.value=''" placeholder="Specification" type="text" formControlName="specification">
+  </div>
+  <br/>
 	 <div class="margin-20">
 	   <button type="submit" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Submit</button>
 	 </div>

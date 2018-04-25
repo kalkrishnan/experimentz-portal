@@ -24,13 +24,15 @@ export class ExperimentComponent implements OnInit{
             name: ['', [Validators.required, Validators.minLength(5)]],
             ingredients: this._fb.array([
                 this.initIngredient(),
-            ])
+            ]),
+            specification: ['']
         });
     }
   initIngredient() {
         return this._fb.group({
             name: ['', Validators.required],
-            amount: ['']
+            sample: [''],
+            condition: ['']
         });
     }
 
@@ -50,10 +52,12 @@ removeIngredient(i: number) {
     console.log(model.value);
     this.experiment.user = JSON.parse(localStorage.getItem('currentUser'));
     this.experiment.name = model.value.name;
+    this.experiment.specification = model.value.specification;
     this.experiment.ingredients = model.value.ingredients;
     this.experimentService.createExperiment(this.experiment)
         .subscribe( data => {
           alert("Experiment created successfully.");
+          window.location.reload();
         });
 
   };
