@@ -5,14 +5,15 @@ import { MatToolbarModule, MatTabsModule, MatButtonModule, MatChipsModule, MatLi
 import { AppComponent } from './app.component';
 import {MatCardModule} from '@angular/material/card';
 import { AppRoutingModule } from './app.routing.module';
-import {ExperimentService} from './services/experiment.service';
+import {TestService} from './services/test.service';
 import {AuthenticationService} from './services/authentication.service';
 import {AlertService} from './services/alert.service';
 import {HttpClientModule} from "@angular/common/http";
-import { ExperimentComponent } from './experiment/experiment.component';
-import { ListexperimentsComponent } from './listexperiments/listexperiments.component';
+import { TestComponent } from './test/test.component';
+import { ReadingComponent } from './reading/reading.component';
+import { ListTestsComponent } from './listtests/listtests.component';
 import { LoginComponent } from './login/login.component';
-import { IngredientComponent } from './ingredient/ingredient.component';
+import { MeasurementComponent } from './measurement/measurement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -27,12 +28,13 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     AppComponent,
     LoginComponent,
-    ExperimentComponent,
-    IngredientComponent,
+    TestComponent,
+    MeasurementComponent,
     DashboardComponent,
-    ListexperimentsComponent,
+    ListTestsComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    ReadingComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatMenuModule,
     MatSelectModule
   ],
-  providers: [AlertService, AuthenticationService, ExperimentService],
+  providers: [AlertService, AuthenticationService, TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

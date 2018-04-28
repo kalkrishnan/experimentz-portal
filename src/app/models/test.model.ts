@@ -1,9 +1,9 @@
-import { Ingredient } from './ingredient.model';
+import { Measurement } from './measurement.model';
 import { User } from './user.model';
-export class Experiment {
+export class Test {
   user: User;
   name: string;
   timestamp: String;
   specification: String;
-  ingredients: Ingredient[] = [];
+  measurements: Measurement[] = [];
 }

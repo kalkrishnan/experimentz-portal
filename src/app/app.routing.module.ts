@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {ExperimentComponent} from './experiment/experiment.component';
+import {TestComponent} from './test/test.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {ListexperimentsComponent} from './listexperiments/listexperiments.component';
+import {ListTestsComponent} from './listtests/listtests.component';
 
 
 const routes: Routes = [
@@ -12,9 +12,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'login', component: LoginComponent },
-  { path: 'experiment', component: ExperimentComponent },
+  { path: 'test', component: TestComponent },
    {path: 'dashboard', component: DashboardComponent },
-   {path: 'listexperiments', component: ListexperimentsComponent }
+   {path: 'listtests', component: ListTestsComponent }
 ];
 
 @NgModule({

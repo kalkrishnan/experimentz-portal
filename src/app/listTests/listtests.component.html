@@ -1,32 +1,32 @@
 <mat-accordion displayMode="flat" >
-  <mat-expansion-panel *ngFor="let experiment of experimentList" >
+  <mat-expansion-panel *ngFor="let test of testList" >
     <mat-expansion-panel-header style="background-color: rgb(198, 233, 245)">
       <mat-panel-title>
-      Name: {{experiment.name}}
+      Name: {{test.name}}
       </mat-panel-title>
       <mat-panel-description>
-      Created: {{experiment.timestamp}}
+      Created: {{test.timestamp}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-	<mat-table #table [dataSource]="experiment.ingredients">
+	<mat-table #table [dataSource]="test.measurements">
 	<ng-container  matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let ingredient"> {{ingredient.name}} </mat-cell>
+      <mat-cell *matCellDef="let measurement"> {{measurement.name}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container  matColumnDef="sample">
       <mat-header-cell *matHeaderCellDef> Sample </mat-header-cell>
-      <mat-cell *matCellDef="let ingredient"> {{ingredient.sample}} </mat-cell>
+      <mat-cell *matCellDef="let measurement"> {{measurement.sample}} </mat-cell>
     </ng-container>
     <ng-container  matColumnDef="condition">
       <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
-      <mat-cell *matCellDef="let ingredient"> {{ingredient.condition}} </mat-cell>
+      <mat-cell *matCellDef="let measurement"> {{measurement.condition}} </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
   <br/>
-    <p>Specification: {{experiment.specification}}</p>
+    <p>Specification: {{test.specification}}</p>
   </mat-expansion-panel>
 </mat-accordion>

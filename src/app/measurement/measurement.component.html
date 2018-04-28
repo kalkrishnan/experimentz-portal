@@ -1,0 +1,31 @@
+
+<!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+<div class="card-body" style=" display: table" [formGroup]="measurementForm">
+    <mat-form-field class="form-group" style="float: left; margin-top: -2em; margin-bottom: -1.25em; margin-right: 20px">
+
+      <mat-select placeholder="measurement"  class="form-group no-underline" required="true" formControlName="measurementName" name="measurementName" >
+        <mat-option *ngFor="let measurement of measurementList" [value]="measurement">
+        {{measurement}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+
+        <div  formArrayName="readings">
+            <div *ngFor="let reading of measurementForm['controls'].readings.controls; let i=index">
+
+                    <div *ngIf="measurementForm['controls'].readings.controls.length > 1" (click)="removeReading(i)" style="float: right">
+                      <i class="fas fa-times" ></i>
+                    </div>
+                <div  class="card-body" [formGroupName]="i" >
+                  <app-reading [readingForm]="measurementForm['controls'].readings.controls[i]"></app-reading>
+                </div>
+            </div>
+        </div>
+      <div class="margin-20" style="float: right; margin-top: -2em;">
+              <a (click)="addReading()" style="cursor: default">
+          Add another reading +
+        </a>
+      </div>
+</div>
+

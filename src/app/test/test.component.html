@@ -10,23 +10,23 @@
             Name is required (minimum 5 characters).
         </small>
     </div>
-    <div  class="card" formArrayName="ingredients">
-        <div *ngFor="let ingredient of myForm['controls'].ingredients.controls; let i=index">
-            <div style=" display: table" class="card-header card text-white bg-dark mb-3"  >
-                <div style="float: left">Ingredient {{i + 1}}</div>
-                <div *ngIf="myForm['controls'].ingredients.controls.length > 1" (click)="removeIngredient(i)" style="float: right">
-                	<i class="fas fa-angle-double-left" ></i>
+    <div  class="card" formArrayName="measurements">
+        <div *ngFor="let measurement of myForm['controls'].measurements.controls; let i=index">
+            <div style=" display: inline-block" class="card-title card text-white bg-dark mb-3"  >
+                <div style="float: left; margin-right: 40px;">Measurement {{i + 1}}</div>
+                <div *ngIf="myForm['controls'].measurements.controls.length > 1" (click)="removeMeasurement(i)" style="float: right">
+                	<i class="fas fa-times" ></i>
                 </div>
             </div>
-            <div  class="card-body" [formGroupName]="i" >
-   				   <app-ingredient [group]="myForm['controls'].ingredients.controls[i]"></app-ingredient>
+            <div  class="card-body" [formGroupName]="i" style="margin-top: -2em;" >
+   				   <app-measurement [measurementForm]="myForm['controls'].measurements.controls[i]"></app-measurement>
 			      </div>
   	    </div>
     </div>
 
 	<div class="margin-20">
-	       <a (click)="addIngredient()" style="cursor: default">
-	    Add another ingredient +
+	       <a (click)="addMeasurement()" style="cursor: default">
+	    Add another measurement +
 	  </a>
   </div>
   <br/>

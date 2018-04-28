@@ -1,0 +1,25 @@
+
+      <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+      <div class="card-body"style=" display: table" [formGroup]="readingForm" >
+        <!--name-->
+        <mat-form-field class="form-group" style="float: left; margin-top: -2em; margin-bottom: -1.25em; margin-right: 20px">
+
+          <mat-select placeholder="condition"  class="form-group no-underline" required="true" formControlName="conditionName" name="conditionName" >
+            <mat-option *ngFor="let condition of conditionList" [value]="condition">
+            {{condition}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!--amount-->
+
+        <mat-form-field class="form-group col-xs-6 " style="float: right;margin-top: -2em ; margin-bottom: -1.25em; margin-right: 20px">
+            <input matInput placeholder="Sample" class="form-control" formControlName="sample">
+        </mat-form-field>
+
+        <mat-form-field class="form-group col-xs-6 " style="float: right;margin-top: -2em ; margin-bottom: -1.25em; margin-right: 20px">
+            <input matInput placeholder="control" class="form-control" formControlName="control">
+        </mat-form-field>
+
+    </div>
+
