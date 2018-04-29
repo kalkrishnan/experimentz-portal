@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Test } from '../models/test.model';
-
+import { SearchCriteria } from '../models/searchcriteria.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +27,14 @@ export class TestService {
         return this.http.get<any>(this.Url, {params});
   }
 
+  public getTests(search) {
+    console.log(search);
+    console.log(search.constructor.name);
+    let params = new HttpParams().set('searchCriteria', search);
+
+        return this.http.post<any>(this.Url + '/tests', search);
+  }
+
   public getMeasurementTypes() {
 
         return this.http.get<any>(this.Url + '/measurementTypes');
@@ -35,5 +43,10 @@ export class TestService {
   public getConditionTypes() {
 
     return this.http.get<any>(this.Url + '/conditionTypes');
-}
+  }
+
+  public getUsers() {
+
+    return this.http.get<any>(this.Url + '/users');
+  }
 }

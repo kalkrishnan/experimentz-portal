@@ -1,0 +1,36 @@
+<div class="col-md-6">
+    <form [formGroup]="searchForm" novalidate (ngSubmit)="search(searchForm)">
+        <!-- we will place our fields here -->
+      <table>
+        <tr>
+          <td><mat-form-field>
+              <mat-select placeholder="measurement"  class="form-group no-underline" required="true" formControlName="measurementName" name="measurementName" >
+                  <mat-option *ngFor="let measurement of measurementList" [value]="measurement">
+                  {{measurement}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field></td>
+          <td><mat-form-field>
+              <mat-select placeholder="user"  class="form-group no-underline" required="true" formControlName="userName" name="userName" >
+                  <mat-option *ngFor="let user of userList" [value]="user">
+                  {{user}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field></td>
+        </tr>
+        <tr>
+            <td><mat-form-field>
+                <input matInput (focus)="this.value=''" placeholder="Formula Id" formControlName="formulaId">
+              </mat-form-field></td>
+            <td><mat-form-field>
+                <input matInput (focus)="this.value=''" placeholder="Version" formControlName="version">
+              </mat-form-field></td>
+        </tr>
+      </table>
+        <div class="margin-20">
+          <button type="submit" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Submit</button>
+        </div>
+
+    </form>
+    <app-listtests [listCriteria]="searchCriteria"></app-listtests>
+</div>

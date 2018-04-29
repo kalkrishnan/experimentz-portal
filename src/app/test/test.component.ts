@@ -21,6 +21,8 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
+            formulaId: ['', Validators.required],
+            version: ['', Validators.required],
             name: ['', [Validators.required, Validators.minLength(5)]],
             measurements: this._fb.array([
                 this.initMeasurement(),
@@ -30,6 +32,7 @@ export class TestComponent implements OnInit {
     }
   initMeasurement() {
         return this._fb.group({
+
             measurementName: ['', Validators.required],
             readings: this._fb.array([
               this.initReading(),
@@ -61,6 +64,8 @@ removeMeasurement(i: number) {
 
     this.test.user = JSON.parse(localStorage.getItem('currentUser'));
     this.test.name = model.value.name;
+    this.test.formulaId = model.value.formulaId;
+    this.test.version = model.value.version;
     this.test.specification = model.value.specification;
     this.test.measurements = model.value.measurements;
     console.log(this.test.measurements);

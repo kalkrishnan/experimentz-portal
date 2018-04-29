@@ -9,22 +9,45 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 	<mat-table #table [dataSource]="test.measurements">
-	<ng-container  matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let measurement"> {{measurement.name}} </mat-cell>
-    </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <ng-container  matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let measurement"> {{measurement.measurementName}} </mat-cell>
+      </ng-container>
 
-    <!-- Name Column -->
-    <ng-container  matColumnDef="sample">
-      <mat-header-cell *matHeaderCellDef> Sample </mat-header-cell>
-      <mat-cell *matCellDef="let measurement"> {{measurement.sample}} </mat-cell>
-    </ng-container>
-    <ng-container  matColumnDef="condition">
-      <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
-      <mat-cell *matCellDef="let measurement"> {{measurement.condition}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+          <ng-container  matColumnDef="condition">
+            <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+            <mat-cell *matCellDef="let measurement">
+                <mat-cell *ngFor="let reading of measurement.readings">
+                    {{reading.conditionName}}
+                    <br/>
+                </mat-cell>
+              </mat-cell>
+          </ng-container>
+          <ng-container  matColumnDef="sample">
+              <mat-header-cell *matHeaderCellDef> Sample </mat-header-cell>
+              <mat-cell *matCellDef="let measurement">
+                  <mat-cell *ngFor="let reading of measurement.readings">
+                      {{reading.sample}}
+                      <br/>
+                  </mat-cell>
+                </mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="control">
+                <mat-header-cell *matHeaderCellDef> Control </mat-header-cell>
+                <mat-cell *matCellDef="let measurement">
+                    <mat-cell *ngFor="let reading of measurement.readings">
+                        {{reading.control}}
+                        <br/>
+                    </mat-cell>
+                  </mat-cell>
+              </ng-container>
+
+
+
   </mat-table>
   <br/>
     <p>Specification: {{test.specification}}</p>

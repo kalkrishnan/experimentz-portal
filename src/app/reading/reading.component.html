@@ -1,6 +1,8 @@
 
       <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
-      <div class="card-body"style=" display: table" [formGroup]="readingForm" >
+      <div [formGroup]="readingForm" >
+        <br/>
+      <div class="column">
         <!--name-->
         <mat-form-field class="form-group" style="float: left; margin-top: -2em; margin-bottom: -1.25em; margin-right: 20px">
 
@@ -10,16 +12,18 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
-        <!--amount-->
-
+      </div>
+      <div class="column">
         <mat-form-field class="form-group col-xs-6 " style="float: right;margin-top: -2em ; margin-bottom: -1.25em; margin-right: 20px">
             <input matInput placeholder="Sample" class="form-control" formControlName="sample">
         </mat-form-field>
-
+      </div>
+      <div class="column">
         <mat-form-field class="form-group col-xs-6 " style="float: right;margin-top: -2em ; margin-bottom: -1.25em; margin-right: 20px">
             <input matInput placeholder="control" class="form-control" formControlName="control">
         </mat-form-field>
-
+      </div>
     </div>
+
+
 

@@ -10,6 +10,7 @@
       </mat-select>
     </mat-form-field>
     <br/>
+    <br/>
 
         <div  formArrayName="readings">
             <div *ngFor="let reading of measurementForm['controls'].readings.controls; let i=index">
@@ -22,6 +23,8 @@
                 </div>
             </div>
         </div>
+        <br/>
+        <br/>
       <div class="margin-20" style="float: right; margin-top: -2em;">
               <a (click)="addReading()" style="cursor: default">
           Add another reading +

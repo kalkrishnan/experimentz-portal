@@ -13,6 +13,7 @@ import { TestComponent } from './test/test.component';
 import { ReadingComponent } from './reading/reading.component';
 import { ListTestsComponent } from './listtests/listtests.component';
 import { LoginComponent } from './login/login.component';
+import { SearchComponent } from './search/search.component';
 import { MeasurementComponent } from './measurement/measurement.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,7 +35,8 @@ import {MatSelectModule} from '@angular/material/select';
     ListTestsComponent,
     HeaderComponent,
     MenuComponent,
-    ReadingComponent
+    ReadingComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

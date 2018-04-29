@@ -1,5 +1,5 @@
 export class Reading {
-  name: string;
+  conditionName: string;
   sample: string;
   control: String;
 }
