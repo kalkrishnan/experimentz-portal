@@ -56,5 +56,12 @@ export class SearchComponent implements OnInit {
 
   }
 
+  reset() {
+    this.searchForm.reset();
+    this.searchCriteria = new SearchCriteria();
+
+
+  }
+
 
 }

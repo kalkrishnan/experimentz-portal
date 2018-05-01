@@ -1,0 +1,14 @@
+
+
+.searchfield {
+  width: 150px;
+  float: left;
+}
+
+.searchfield {
+  margin-right: 30px;
+}
+
+.floatClear {
+  clear: both;
+}

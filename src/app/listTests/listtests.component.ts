@@ -33,15 +33,11 @@ export class ListTestsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
       let change = changes["listCriteria"];
-
-      console.log("VALUE CHANGED");
-
       this.listCriteria = change.currentValue;
-
-      console.log(this.listCriteria);
       const httpGet$ = this.testService.getTests(this.listCriteria).subscribe(
         data => {
           console.log(data);
+          this.testList.length = 0;
             this.testList = this.testList.concat(data);
 
         },
