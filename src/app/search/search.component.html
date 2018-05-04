@@ -1,16 +1,16 @@
-<div class="col-md-6">
+<div class="col-md-12">
     <form [formGroup]="searchForm" novalidate (ngSubmit)="search(searchForm)">
         <!-- we will place our fields here -->
       <div>
           <mat-form-field class="searchfield">
-              <mat-select placeholder="measurement"  class="form-group" required="true" formControlName="measurementName" name="measurementName" >
+              <mat-select placeholder="measurement"  class="form-group"  formControlName="measurementName" name="measurementName" >
                   <mat-option *ngFor="let measurement of measurementList" [value]="measurement">
                   {{measurement}}
                   </mat-option>
                 </mat-select>
             </mat-form-field>
           <mat-form-field class="searchfield">
-              <mat-select placeholder="user"  class="form-group" required="true" formControlName="userName" name="userName" >
+              <mat-select placeholder="user"  class="form-group" formControlName="userName" name="userName" >
                   <mat-option *ngFor="let user of userList" [value]="user">
                   {{user}}
                   </mat-option>
@@ -22,11 +22,23 @@
           <mat-form-field class="searchfield">
                 <input matInput (focus)="this.value=''" placeholder="Version" formControlName="version">
               </mat-form-field>
+
+            <mat-form-field class="searchfield">
+              <input matInput [matDatepicker]="picker" class="form-group" formControlName="startDate" name="startDate" placeholder="Start Date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="searchfield">
+              <input matInput [matDatepicker]="endDate" class="form-group" formControlName="endDate" name="endDate" placeholder="End Date">
+              <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+              <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
           </div>
           <br/>
           <div class="floatClear"></div>
         <div class="margin-20">
-          <button mat-raised-button type="submit" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Submit</button>
+          <button mat-raised-button type="submit" [disabled]="searchForm.hasError('searchValidatorError')" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Submit</button>
           <button mat-raised-button type="button" (click)="reset($event)" class="btn btn-primary pull-right card text-white bg-dark mb-3" >Clear</button>
         </div>
 

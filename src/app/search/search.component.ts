@@ -3,6 +3,7 @@ import { TestService } from '../services/index';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { SearchCriteria } from '../models/searchcriteria.model';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -22,8 +23,10 @@ export class SearchComponent implements OnInit {
       formulaId: [''],
       version: [''],
       userName: [''],
-      measurementName: ['']
-  });
+      measurementName: [''],
+      startDate: '',
+      endDate: ''
+  },  {validator: this.searchValidator});
 
     this.testService.getMeasurementTypes().subscribe(
       data => {
@@ -52,6 +55,14 @@ export class SearchComponent implements OnInit {
     this.searchCriteria.userName = model.value.userName;
     this.searchCriteria.version = model.value.version;
     this.searchCriteria.formulaId = model.value.formulaId;
+    if ( model.value.startDate != null)
+    {
+      this.searchCriteria.startDate = model.value.startDate;
+    }
+    if (model.value.endDate != null)
+    {
+      this.searchCriteria.endDate = model.value.endDate;
+    }
     console.log(this.searchCriteria);
 
   }
@@ -59,9 +70,23 @@ export class SearchComponent implements OnInit {
   reset() {
     this.searchForm.reset();
     this.searchCriteria = new SearchCriteria();
-
-
   }
+
+
+  searchValidator(group: FormGroup) {
+    for(const a in group.controls) {
+
+      const val = <string>group.get([a]).value;
+
+      if(val !=null && val.toString().length > 0)
+      {
+        console.log(JSON.stringify(val));
+        return null;
+      }
+    }
+    return { searchValidatorError : true } ;
+  }
+
 
 
 }

@@ -34,6 +34,12 @@ export class ListTestsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
       let change = changes["listCriteria"];
       this.listCriteria = change.currentValue;
+      if(this.emptyCriteria())
+      {
+        this.testList.length = 0;
+      }
+      else
+      {
       const httpGet$ = this.testService.getTests(this.listCriteria).subscribe(
         data => {
           console.log(data);
@@ -44,6 +50,15 @@ export class ListTestsComponent implements OnInit, OnChanges {
         error => {
 
         });
+      }
+   }
+
+   emptyCriteria()
+   {
+     if(this.listCriteria.formulaId == null && this.listCriteria.measurementName == null && this.listCriteria.userName == null && this.listCriteria.version == null && this.listCriteria.startDate == null && this.listCriteria.endDate == null)
+     {
+       return true;
+     }
    }
 
 

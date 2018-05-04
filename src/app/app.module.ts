@@ -24,6 +24,7 @@ import { MenuComponent } from './menu/menu.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatIconModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [AlertService, AuthenticationService, TestService],
   bootstrap: [AppComponent]

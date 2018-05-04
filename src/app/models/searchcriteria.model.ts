@@ -3,4 +3,6 @@ export class SearchCriteria {
   measurementName: string;
   formulaId: string;
   version: String;
+  startDate: String;
+  endDate: String;
 }
